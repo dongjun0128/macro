@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 class key implements KeyListener{
@@ -18,10 +19,14 @@ class key implements KeyListener{
 }
 
 
-public class Main {
+public class Main extends JPanel {
     JFrame frame = new JFrame("매크로");
     Button btn1 = new Button("Start");
     Button btn2 = new Button("End");
+
+    private URL searchURL;
+    private ImageIcon imageicon;
+    private JButton button;
 
     public void creatFrame(){
         frame.getContentPane().setLayout(null);
@@ -31,6 +36,12 @@ public class Main {
 
         frame.add(btn1);
         frame.add(btn2);
+
+        searchURL = getClass().getResource("/images/search.png");
+        imageicon = new ImageIcon(searchURL);
+        button= new JButton(imageicon);
+
+
 
         frame.setSize(350,300);
         frame.setVisible(true);
@@ -68,8 +79,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main frame = new Main();
-        frame.creatFrame();
-        frame.buttonAction(frame.btn1, frame.btn2);
+        Main mainFrame = new Main();
+        mainFrame.creatFrame();
+        mainFrame.buttonAction(mainFrame.btn1, mainFrame.btn2);
     }
 }
