@@ -19,14 +19,13 @@ class key implements KeyListener{
 }
 
 
-public class Main extends JPanel {
+public class Main extends JFrame {
     JFrame frame = new JFrame("매크로");
     Button btn1 = new Button("Start");
     Button btn2 = new Button("End");
+    ImageIcon img1;
+    ImageIcon img2;
 
-    private URL searchURL;
-    private ImageIcon imageicon;
-    private JButton button;
 
     public void creatFrame(){
         frame.getContentPane().setLayout(null);
@@ -37,11 +36,8 @@ public class Main extends JPanel {
         frame.add(btn1);
         frame.add(btn2);
 
-        searchURL = getClass().getResource("/images/search.png");
-        imageicon = new ImageIcon(searchURL);
-        button= new JButton(imageicon);
-
-
+        img1 = new ImageIcon("images/picture1.png");
+        img2 = new ImageIcon("images/picture2.png");
 
         frame.setSize(350,300);
         frame.setVisible(true);
