@@ -9,17 +9,21 @@ import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-class key implements KeyListener{
-    @Override
-    public void keyPressed(KeyEvent e2) {
+class MyThread implements Runnable{
+    public void run(){
+        try {
+            Robot robot = new Robot();
+            while(true){
+                robot.keyPress(32);
+                System.out.println("실행");
+                TimeUnit.SECONDS.sleep(1);
+            }
+        }
+        catch (Exception e1){
+            System.out.println(e1);
+        }
     }
-
-    @Override
-    public void keyTyped(KeyEvent e2) {}
-    public void keyReleased(KeyEvent e2){ }
-
 }
-
 
 public class Main extends JFrame {
     JFrame frame = new JFrame("매크로");
@@ -51,7 +55,7 @@ public class Main extends JFrame {
 
         ImageIcon [] images = {new ImageIcon("images/picture1.png"), new ImageIcon("images/picture2.png")};
         
-        images[0]=imageSetSize(images[0],135,135);
+        images[0]=imageSetSize(images[0],350,350);
         
         JLabel imgLabel = new JLabel(images[0]);
         Container c = getContentPane();
@@ -65,23 +69,12 @@ public class Main extends JFrame {
     }
 
     public void buttonAction(Button btn1, Button btn2){
+        Thread thread = new Thread(new MyThread());
+
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Robot robot = new Robot();
-                    int i = 0;
-                    while(i<10){
-                        i++;
-                        robot.keyPress(32);
-                        System.out.println("실행");
-                        TimeUnit.SECONDS.sleep(1);
-                    }
-                }
-                catch (Exception e1){
-                    System.out.println(e1);
-                }
-
+                thread.start();
             }
         });
 
@@ -89,6 +82,7 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("bnt2 눌림");
+                thread.interrupt();
             }
         });
 
