@@ -26,7 +26,7 @@ class MyThread implements Runnable{
 }
 
 public class Main extends JFrame {
-    JFrame frame = new JFrame("매크로");
+    JFrame frame = new JFrame("Macro for JungMin");
     Button btn1 = new Button("Start");
     Button btn2 = new Button("End");
     JPanel contentPane = new JPanel();
@@ -41,8 +41,8 @@ public class Main extends JFrame {
     public void creatFrame(){
         frame.getContentPane().setLayout(null);
 
-        btn1.setBounds(30,200,122,30);
-        btn2.setBounds(182,200,122,30);
+        btn1.setBounds(40,330,122,30);
+        btn2.setBounds(200,330,122,30);
 
         contentPane = new JPanel();
         contentPane.setBackground(Color.white);
@@ -53,17 +53,17 @@ public class Main extends JFrame {
         contentPane.add(btn1);
         contentPane.add(btn2);
 
-        ImageIcon [] images = {new ImageIcon("images/picture1.png"), new ImageIcon("images/picture2.png")};
+        ImageIcon [] images = {new ImageIcon("images/picture1.png"), new ImageIcon("images/picture2.png"), new ImageIcon("images/picture3.jpg"), new ImageIcon("images/picture4.jpg")};
         
-        images[0]=imageSetSize(images[0],350,350);
+        images[3]=imageSetSize(images[3],350,430);
         
-        JLabel imgLabel = new JLabel(images[0]);
+        JLabel imgLabel = new JLabel(images[3]);
         Container c = getContentPane();
         c.setLayout(getLayout());
         c.add(imgLabel);
         
         frame.setContentPane(contentPane);
-        frame.setSize(350,300);
+        frame.setSize(365,450);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
