@@ -13,8 +13,9 @@ class MyThread implements Runnable{
     public void run(){
         try {
             Robot robot = new Robot();
+            Runtime.getRuntime().exec("notepad");
             while(true){
-                robot.keyPress(32);
+                robot.keyPress(96);
                 System.out.println("실행");
                 TimeUnit.SECONDS.sleep(1);
             }
@@ -26,7 +27,7 @@ class MyThread implements Runnable{
 }
 
 public class Main extends JFrame {
-    JFrame frame = new JFrame("Macro for JungMin");
+    JFrame frame = new JFrame("Macro");
     Button btn1 = new Button("Start");
     Button btn2 = new Button("End");
     JPanel contentPane = new JPanel();
@@ -55,9 +56,9 @@ public class Main extends JFrame {
 
         ImageIcon [] images = {new ImageIcon("images/picture1.png"), new ImageIcon("images/picture2.png"), new ImageIcon("images/picture3.jpg"), new ImageIcon("images/picture4.jpg")};
         
-        images[3]=imageSetSize(images[3],350,430);
+        images[0]=imageSetSize(images[0],350,430);
         
-        JLabel imgLabel = new JLabel(images[3]);
+        JLabel imgLabel = new JLabel(images[0]);
         Container c = getContentPane();
         c.setLayout(getLayout());
         c.add(imgLabel);
