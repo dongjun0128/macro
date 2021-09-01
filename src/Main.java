@@ -56,9 +56,9 @@ public class Main extends JFrame {
 
         ImageIcon [] images = {new ImageIcon("images/picture1.png"), new ImageIcon("images/picture2.png"), new ImageIcon("images/picture3.jpg"), new ImageIcon("images/picture4.jpg")};
         
-        images[0]=imageSetSize(images[0],350,430);
+        images[3]=imageSetSize(images[3],350,430);
         
-        JLabel imgLabel = new JLabel(images[0]);
+        JLabel imgLabel = new JLabel(images[3]);
         Container c = getContentPane();
         c.setLayout(getLayout());
         c.add(imgLabel);
